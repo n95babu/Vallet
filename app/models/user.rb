@@ -1,3 +1,3 @@
 class User < ApplicationRecord
-  has_many :Coin
+  has_many :currencies
 end
