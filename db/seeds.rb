@@ -18,3 +18,18 @@ currency1 = Currency.create(
   amount: 40.50, 
 )
 
+
+user1.currencies << currency1
+
+user2 = User.create(
+  first_name: "JD",
+  last_name: "Adams",
+  email: "jadams@vallet.com",
+  phone: "917-678-5630"
+)
+
+currency2 = Currency.create(
+  coin: "Bitcoin",
+  amount: 40.50, 
+)
+user2.currencies << currency2
