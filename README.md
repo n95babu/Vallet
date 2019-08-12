@@ -4,7 +4,6 @@
 
 ## Table of Contents
 - [Project Description](#project-description)
-  - [Project Inspiration](#project-inspiration)
 - [Design](#design)
   - [Sitemap](#sitemap)
   - [Wireframes](#wireframes)
@@ -44,6 +43,11 @@ Vallet is cryptocurrency profilio tracking app. See your entire profilio on one 
 ### Sitemap
 
 ### Wireframes
+
+#####Desktop
+![] (https://i.imgur.com/mcTszs1.png)
+![] (https://i.imgur.com/0wu5gd4.png)
+![] (https://i.imgur.com/OTpzM4x.png)
 
 ##### Mobile
 ![Vallet IMG 1](https://i.imgur.com/ZRIteRC.png)
