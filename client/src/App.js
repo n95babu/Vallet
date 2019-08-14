@@ -73,7 +73,7 @@ export class App extends React.Component {
 
 
   handleUpdateUser = async (data) => {
-    const userz = await updateUser(data);
+    const userz = await updateUser(this.state.currentUser.id, data);
     this.setState(prevState => ({
       user: [...prevState.user, userz]
     }));
@@ -142,7 +142,7 @@ export class App extends React.Component {
           render={(props) => (
             <UserForm
               {...props}
-              handleSubmit={this.state.handleUpdateUser}
+              handleSubmit={this.handleUpdateUser}
             />
           )} />
         <Route exact path="/news"

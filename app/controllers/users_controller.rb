@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: %i[show update destroy]
+  # before_action :set_user, only: %i[show update destroy]
   before_action :authorize_request, only: [:verify]
 
   def index 
@@ -23,7 +23,8 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    if @user.update(user_params)
+    p @user
+    if @user.update({first_name: params[:first_name], last_name: params[:last_name], phone: params[:phone]})
       render json: @user, status: :ok
     else
       render json: { errors: @user.errors }, status: :unprocessable_entity

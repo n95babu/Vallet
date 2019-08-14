@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { verifyUser } from '../services/api-helper'
+import { verifyUser, createCoin, userCurrencies, editCoin, deleteCoin } from '../services/api-helper'
 
 export class Dashboard extends Component {
   constructor(props) {

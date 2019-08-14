@@ -1,13 +1,14 @@
 import axios from 'axios';
 
 const newsAPI = `https://min-api.cryptocompare.com/data/v2/news/?lang=EN`
-
+const coinApi = `https://api.coinmarketcap.com/v1/ticker`
 const baseUrl = 'http://localhost:3000'
 
 const api = axios.create({
   baseURL: baseUrl
 });
 
+// ======================= Auth ========================
 export const loginUser = async (loginData) => {
   const resp = await api.post('/auth/login', loginData)
   localStorage.setItem('authToken', resp.data.token);
@@ -31,13 +32,45 @@ export const verifyUser = async () => {
 }
 
 
+//==================================  User ==================
 
-export const fetchUser = async () => {
-  const resp = await api.get('/users');
-  console.log(resp.data)
+// Update User
+export const updateUser = async (userId, data) => {
+  const resp = await api.put(`/users/${userId}`, data);
   return resp.data;
-};
+}
 
+
+//=============================== Currencies ==================
+
+// Create Currencies
+export const createCoin = async (UserId, data) => {
+  const resp = await api.post(`/users/${UserId}/currencies`)
+  return resp.data;
+}
+
+// User Currencies
+export const userCurrencies = async (UserId, data) => {
+  const resp = await api.get(`/users/${UserId}/currencies`)
+  return resp.data;
+}
+
+// Update Currencies
+export const editCoin = async (UserId, coinId) => {
+  const resp = await api.put(`/users/${UserId}/currencies/${coinId}`)
+  return resp.data;
+}
+
+// Delete Currencies
+export const deleteCoin = async (UserId, coinId) => {
+  const resp = await api.delete(` /users/${UserId}/currencies/${coinId}`)
+  return resp.data
+}
+
+// ================ 3rd Party ======================== 
+
+
+// News
 export const fetchNews = async () => {
   const resp = await axios.get(newsAPI)
   const data = resp.data.Data
@@ -45,30 +78,10 @@ export const fetchNews = async () => {
   return data;
 }
 
-// export const createUser = async (data) => {
-//   const resp = await api.post('/users', data)
-//   return resp.data;
-// };
-
-export const updateUser = async (userId, data) => {
-  const resp = await api.put(`/users/${userId}`, data);
-  return resp.data;
+//  Currencies
+export const apiCurrencies = async () => {
+  const resp = await axios.get(coinApi)
+  return resp;
 }
-
-export const deleteUser = async (id) => {
-  const resp = await api.delete(`/users/${id}`);
-  return resp.data;
-};
-
-// fetch userCurrencies = async(user_id) 
-  // api.get(/users/: user_id / currencies)
-  // return resp.data
-
-// fetch apiCurrencies = async
-// this is where you do a get request to get currencies from that crypto api
-
-
-
-
 
 
