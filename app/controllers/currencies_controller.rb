@@ -6,7 +6,7 @@ class CurrenciesController < ApplicationController
   end
 
   def show 
-    @user = User.find(params[:user_id])
+    # @user = User.find(params[:user_id])
     @currency = Currency.find(params[:id])
     render json: @currency, include: :user, status: :ok
   end
