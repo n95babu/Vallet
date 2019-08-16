@@ -47,8 +47,11 @@ export class Dashboard extends Component {
 
           ))
         }
-        <Link to="/new/coin">Add Coin</Link>
-        <Link to='/new/user'>UPDATE PROFILE</Link>
+        <div className="DashBoard-Links">
+          <Link to="/new/coin">Add Coin</Link>
+          &nbsp; &nbsp; &nbsp;
+          <Link to='/new/user'>UPDATE PROFILE</Link>
+        </div>
       </div>
     )
   }
