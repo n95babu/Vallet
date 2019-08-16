@@ -13,7 +13,7 @@ class CurrenciesController < ApplicationController
 
   def create
     # @user = User.find(params[:user_id])
-    @currency = Currency.new(currencies_params)
+    @currency = Currency.new(currency_params)
     if @currency.save
       render json: @currency, status: :created
     else

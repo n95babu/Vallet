@@ -3,22 +3,25 @@ import './App.css';
 import { Route, Link } from 'react-router-dom'
 import { withRouter } from 'react-router';
 import decode from 'jwt-decode';
-
+import logo from './assets/vallet.png'
 
 import UserForm from './components/UserForm'
 import News from './components/News'
 import Login from './components/Login'
 import Register from './components/Register'
 import Dashboard from './components/Dashboard'
-
+import CreateCoin from './components/CreateCoin'
+import LandingPg from './components/LandingPg'
 
 import {
   loginUser,
   registerUser,
   verifyUser,
-  fetchUser,
   updateUser,
-  fetchNews
+  createCoin,
+  fetchNews,
+  deleteCoin,
+  fetchCurrentUser
 } from './services/api-helper';
 
 
@@ -27,50 +30,34 @@ export class App extends React.Component {
     super(props)
     this.state = {
       user: [],
-      currency: [],
       news: [],
-      UserForm: {
-        name: "",
-
-      },
       currentUser: null,
       authFormData: {
         email: "",
         password: ""
+      },
+      coinFormData: {
+        coin: "",
+        amount: 0,
+        user_id: ""
       }
     };
   }
-
-  // async componentDidMount() {
-  //   try {
-  //     const user = await fetchUser();
-  //     const news = await fetchNews();
-  //     this.setState({
-  //       user: user,
-  //       data: news,
-
-  //     });
-  //   } catch (e) {
-  //     console.log(e)
-  //   }
-  // }
-
   async componentDidMount() {
+    const data = await fetchNews();
+    this.setState({
+      news: data
+    });
+
     const user = await verifyUser();
-    if (user) {
-      this.setState({
-        currentUser: user
-      })
-    }
-  }
-
-  // getUser = async () => {
-  //   const users = await fetchUser();
-  //   this.setState({
-  //     user: users,
-  //   })
-  // }
-
+    const currentUser = await fetchCurrentUser(user.id)
+    this.setState({
+      currentUser: currentUser,
+      coinFormData: {
+        user_id: user.id
+      }
+    })
+  };
 
   handleUpdateUser = async (data) => {
     const userz = await updateUser(this.state.currentUser.id, data);
@@ -78,6 +65,36 @@ export class App extends React.Component {
       user: [...prevState.user, userz]
     }));
   };
+
+  newCoin = async (e) => {
+    e.preventDefault();
+    const coin = await createCoin(this.state.currentUser.id, this.state.coinFormData)
+    this.setState(prevState => ({
+      coinFormData: {
+        coin: "",
+        amount: "",
+      }
+    }))
+    this.props.history.push('/dashboard')
+  }
+
+  handleCoinFormChange = async (e) => {
+    const { name, value } = e.target;
+    this.setState(prevState => ({
+      coinFormData: {
+        ...prevState.coinFormData,
+        [name]: value
+      }
+    }));
+  }
+
+
+  deleteCoin = async (id) => {
+    await deleteCoin(id);
+    this.setState(prevState => ({
+      currency: prevState.currency.filter(currency => currency.id !== id)
+    }))
+  }
 
   //  Auth
   handleLoginButton = () => {
@@ -89,13 +106,14 @@ export class App extends React.Component {
     this.setState({
       currentUser: userData
     })
-    this.props.history.push('/dashboard')
+    this.props.history.push('/home')
   }
 
   handleRegister = async (e) => {
     e.preventDefault();
     await registerUser(this.state.authFormData);
     this.handleLogin();
+    this.props.history.push('/home')
   }
 
   handleLogout = () => {
@@ -115,30 +133,60 @@ export class App extends React.Component {
       }
     }));
   }
-
   render() {
     return (
-
       < div className="App" >
-        <h1>Vallet</h1>
-        <nav>
-          <Link to="/">Home</Link>
-          <Link to="/dashboard">Dashboard</Link>
-          <Link to="/news">News</Link>
-        </nav>
-        <div>
-          {this.state.currentUser
-            ?
-            <>
-              <p>{this.state.currentUser.username}</p>
-              <button onClick={this.handleLogout}>Logout</button>
-            </>
-            :
-            <button onClick={this.handleLoginButton}>Login/Register</button>}
-        </div>
+        <header className="header">
+          <img className="logo" src={logo} alt="Logo" />
+          <div id="header-nav">
+            <ul>
+              <li>
+                <Link to="/home">Home</Link>
+                &nbsp; &nbsp; &nbsp;
+                <Link to="/dashboard">Dashboard</Link>
+                &nbsp; &nbsp; &nbsp;
+                <Link to="/news">News</Link>
+              </li>
+            </ul>
+          </div>
+          <div>
+            {this.state.currentUser
+              ?
+              <>
+                <p>{this.state.currentUser.username}</p>
+                <Link id="header-nav" onClick={this.handleLogout}>Logout</Link>
+              </>
+              :
+              <button onClick={this.handleLoginButton}></button>}
+          </div>
+        </header>
 
-        <Route exact path="/dashboard" render={() => <Dashboard />} />
-        <Route exact path="/"
+        <Route exact path="/login" render={() => (
+          <Login
+            handleLogin={this.handleLogin}
+            handleChange={this.authHandleChange}
+            formData={this.state.authFormData} />)} />
+        <Route exact path="/register" render={() => (
+          <Register
+            handleRegister={this.handleRegister}
+            handleChange={this.authHandleChange}
+            formData={this.state.authFormData} />)} />
+
+
+        <Route exact path="/dashboard"
+          render={() =>
+            <Dashboard
+              currentUser={this.state.currentUser}
+            />}
+        />
+        <Route exact path="/home"
+          render={(props) => (
+            <LandingPg />
+
+          )}
+
+        />
+        <Route exact path="/new/user"
           render={(props) => (
             <UserForm
               {...props}
@@ -151,27 +199,16 @@ export class App extends React.Component {
               news={this.state.news}
             />
           )} />
-
-        <Route exact path="/login" render={() => (
-          <Login
-            handleLogin={this.handleLogin}
-            handleChange={this.authHandleChange}
-            formData={this.state.authFormData} />)} />
-        <Route exact path="/register" render={() => (
-          <Register
-            handleRegister={this.handleRegister}
-            handleChange={this.authHandleChange}
-            formData={this.state.authFormData} />)} />
-        {/* <Route
-          exact path="/"
+        <Route
+          exact path="/new/coin"
           render={() => (
-            <UserList
-              users={this.state.users}
-              UserForm={this.state.UserForm}
-              handleFormChange={this.handleFormChange}
-              newUser={this.newUser} />
+            <CreateCoin
+              onChange={this.handleCoinFormChange}
+              onSubmit={this.newCoin}
+              currentUser={this.state.currentUser}
+            />
           )}
-        /> */}
+        />
 
         <footer>
           <h5>@Vallet 2019. All Rights Reserved. </h5>
@@ -180,5 +217,4 @@ export class App extends React.Component {
     )
   }
 }
-
 export default withRouter(App)

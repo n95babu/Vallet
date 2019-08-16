@@ -17,7 +17,6 @@ export class UserForm extends Component {
 
     });
   }
-
   submit = (ev) => {
     ev.preventDefault();
     this.props.handleSubmit(this.state);
@@ -27,14 +26,11 @@ export class UserForm extends Component {
       phone: '',
 
     })
-    this.props.history.push('/users')
+    this.props.history.push('/dashboard')
   }
-
-
   render() {
-    console.log(this.props)
     return (
-      <div>
+      <div className="UserUpdate">
         <form onSubmit={this.submit}>
           <label htmlFor="first_name"> First Name </label>
           <input
@@ -44,7 +40,7 @@ export class UserForm extends Component {
             id="first_name"
             onChange={this.handleChange}
           />
-          <label htmlFor="first_name"> Last Name </label>
+          <label htmlFor="last_name"> Last Name </label>
           <input
             type="text"
             name="last_name"
@@ -52,7 +48,7 @@ export class UserForm extends Component {
             id="last_name"
             onChange={this.handleChange}
           />
-          <label htmlFor="first_name"> Phone </label>
+          <label htmlFor="phone"> Phone </label>
           <input
             type="text"
             name="phone"

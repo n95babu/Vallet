@@ -31,6 +31,11 @@ export const verifyUser = async () => {
   return false;
 }
 
+export const fetchCurrentUser = async (id) => {
+  const resp = await api.get(`users/${id}`)
+  return resp.data
+}
+
 
 //==================================  User ==================
 
@@ -45,7 +50,7 @@ export const updateUser = async (userId, data) => {
 
 // Create Currencies
 export const createCoin = async (UserId, data) => {
-  const resp = await api.post(`/users/${UserId}/currencies`)
+  const resp = await api.post(`/users/${UserId}/currencies`, data)
   return resp.data;
 }
 
@@ -56,25 +61,23 @@ export const userCurrencies = async (UserId, data) => {
 }
 
 // Update Currencies
-export const editCoin = async (UserId, coinId) => {
+export const updateCoin = async (UserId, coinId) => {
   const resp = await api.put(`/users/${UserId}/currencies/${coinId}`)
   return resp.data;
 }
 
 // Delete Currencies
 export const deleteCoin = async (UserId, coinId) => {
-  const resp = await api.delete(` /users/${UserId}/currencies/${coinId}`)
+  const resp = await api.delete(`/users/${UserId}/currencies/${coinId}`)
   return resp.data
 }
 
 // ================ 3rd Party ======================== 
 
-
 // News
 export const fetchNews = async () => {
   const resp = await axios.get(newsAPI)
   const data = resp.data.Data
-  console.log(data)
   return data;
 }
 
