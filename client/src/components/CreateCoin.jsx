@@ -21,6 +21,7 @@ function CreateCoin(props) {
           onChange={props.onChange}
         />
         <button> Submit </button>
+
       </form>
     </div>
 
