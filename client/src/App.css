@@ -1,6 +1,9 @@
+/* ==========================Global CSS=========================== */
+
 .App {
   text-align: center;
-  background: lightgray
+  background: #060B13;
+  color: #fafafa;
 }
 
 html {
@@ -37,17 +40,9 @@ body {
   border-radius: 20px;
   margin: 20px;
   padding: 5px;
-  color: yellow;
+  color: white;
   background: #36713D;
   font-weight: bold;
-}
-
-.header {
-  position: fixed;
-  top: 15px;
-  left: 15px;
-  right: 15px;
-  padding: 0;
 }
 
 .logo {
@@ -117,7 +112,7 @@ body {
 }
 
 #header-nav a {
-  color: black;
+  color: white;
   font-weight: bold;
   text-transform: uppercase;
   text-decoration: none;
@@ -134,6 +129,46 @@ footer {
   align-items: center;
   height: 50vh;
 }
+
+/* =================================Crypto Card ===================================== */
+
+.card {
+  border-radius: 4px;
+  width: 200px;
+  height: 100px;
+}
+
+.card.gain {
+  border: 1px solid green;
+}
+
+.card.loss {
+  border: 1px solid red;
+}
+
+.card .name {
+  padding: 8px 12px;
+  font-weight: bold;
+}
+
+.card .name span {
+  margin: 0px 0px 0px 4px;
+  font-weight: normal;
+}
+
+.card .percantage {
+  font-size: 0.9 em
+}
+
+.card .percantage.gain, .card .price.gain {
+  color: green;
+}
+
+.card .percantage.loss, .card .price.gain {
+  color: red;
+}
+
+/* ================================Landing PG ============================================ */
 
 .landin {
   padding-top: 200px;

@@ -2,7 +2,6 @@ import React from 'react'
 import './App.css';
 import { Route, Link } from 'react-router-dom'
 import { withRouter } from 'react-router';
-import decode from 'jwt-decode';
 import logo from './assets/vallet.png'
 
 import UserForm from './components/UserForm'
@@ -103,8 +102,12 @@ export class App extends React.Component {
 
   handleLogin = async () => {
     const userData = await loginUser(this.state.authFormData);
+    const currentUser = await fetchCurrentUser(userData.id)
     this.setState({
-      currentUser: userData
+      currentUser: currentUser,
+      coinFormData: {
+        user_id: currentUser.id
+      }
     })
     this.props.history.push('/home')
   }
@@ -134,6 +137,7 @@ export class App extends React.Component {
     }));
   }
   render() {
+    // console.log(this.state.currentUser)
     return (
       < div className="App" >
         <header className="header">

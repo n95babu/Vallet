@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const newsAPI = `https://min-api.cryptocompare.com/data/v2/news/?lang=EN`
-const coinApi = `https://api.coinmarketcap.com/v1/ticker`
+const coinApi = `https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=BTC,USD`
 const baseUrl = 'http://localhost:3000'
 
 const api = axios.create({
@@ -84,7 +84,8 @@ export const fetchNews = async () => {
 //  Currencies
 export const apiCurrencies = async () => {
   const resp = await axios.get(coinApi)
-  return resp;
+  const data = resp.data
+  return data;
 }
 
 

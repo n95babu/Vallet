@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { userCurrencies } from '../services/api-helper'
-
 import { Link } from 'react-router-dom';
 import { Button, Card } from 'react-bootstrap';
+import CryptoCard from './index'
 
 export class Dashboard extends Component {
   constructor(props) {
@@ -28,7 +28,6 @@ export class Dashboard extends Component {
       user.currencies = []
     }
 
-
     return (
       <div className="DashBoard">
         <h3 className="currentUser">Welcome, {user.first_name}!</h3>
@@ -44,7 +43,6 @@ export class Dashboard extends Component {
                   this.push.history.push('/dashboard')
                 }} > Delete</Button>
             </div>
-
           ))
         }
         <div className="DashBoard-Links">
@@ -52,6 +50,10 @@ export class Dashboard extends Component {
           &nbsp; &nbsp; &nbsp;
           <Link to='/new/user'>UPDATE PROFILE</Link>
         </div>
+        <CryptoCard
+          name="Bitcoin"
+          symbol="BTC"
+        />
       </div>
     )
   }
