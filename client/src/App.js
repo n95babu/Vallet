@@ -11,7 +11,7 @@ import Register from './components/Register'
 import Dashboard from './components/Dashboard'
 import CreateCoin from './components/CreateCoin'
 import LandingPg from './components/LandingPg'
-
+import Navbar from './components/Navbar'
 import {
   loginUser,
   registerUser,
@@ -137,8 +137,43 @@ export class App extends React.Component {
     }));
   }
   render() {
-    // console.log(this.state.currentUser)
+    // let display
+    // if (!this.state.currentUser) {
+    //   display =
+    //     <>
+    //       <Route exact path="/login" render={() => (
+    //         <Login
+    //           handleLogin={this.handleLogin}
+    //           handleChange={this.authHandleChange}
+    //           formData={this.state.authFormData} />)} />
+    //       <Route exact path="/register" render={() => (
+    //         <Register
+    //           handleRegister={this.handleRegister}
+    //           handleChange={this.authHandleChange}
+    //           formData={this.state.authFormData} />)} />
+    //       <div className="toggle-btn">
+    //         {this.state.currentUser
+    //           ?
+    //           <>
+    //             <p>{this.state.currentUser.username}</p>
+    //             <button onClick={this.handleLogout}>Logout</button>
+    //           </>
+    //           :
+    //           <button onClick={this.handleLoginButton}>Login/Register</button>}
+    //       </div>
+    //     </>
+    // }
+    // else {
+    //   display =
+    //     <>
+    //       <Navbar />
+    //     </>
+    // }
+
+
+
     return (
+
       < div className="App" >
         <header className="header">
           <img className="logo" src={logo} alt="Logo" />
