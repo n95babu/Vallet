@@ -3,7 +3,7 @@ import axios from 'axios';
 const newsAPI = `https://min-api.cryptocompare.com/data/v2/news/?lang=EN`
 const coinApi = `https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=BTC,USD`
 const baseUrl = 'http://localhost:3000'
-
+const MKTApi = `https://api.coinranking.com/v1/public/stats?base=USD`
 const api = axios.create({
   baseURL: baseUrl
 });
@@ -89,3 +89,9 @@ export const apiCurrencies = async () => {
 }
 
 
+// MKT Cap
+export const ApiCap = async () => {
+  const resp = await axios.get(MKTApi)
+  console.log(resp)
+  return resp;
+}
