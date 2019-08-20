@@ -104,7 +104,7 @@ export class App extends React.Component {
 
   //  Auth
   handleLoginButton = () => {
-    this.props.history.push("/login")
+    this.props.history.push("/")
   }
 
   handleLogin = async () => {
@@ -123,7 +123,7 @@ export class App extends React.Component {
     e.preventDefault();
     await registerUser(this.state.authFormData);
     this.handleLogin();
-    this.props.history.push('/login')
+    this.props.history.push('/')
   }
 
   handleLogout = () => {
@@ -131,7 +131,7 @@ export class App extends React.Component {
     this.setState({
       currentUser: null
     })
-    this.props.history.push('/login')
+    this.props.history.push('/')
   }
 
   authHandleChange = (e) => {
@@ -144,47 +144,7 @@ export class App extends React.Component {
     }));
   }
   render() {
-    // let display
-    // if (!this.state.currentUser) {
-    //   display =
-    //     <>
-    //       <Route exact path="/login" render={() => (
-    //         <Login
-    //           handleLogin={this.handleLogin}
-    //           handleChange={this.authHandleChange}
-    //           formData={this.state.authFormData} />)} />
-    //       <Route exact path="/register" render={() => (
-    //         <Register
-    //           handleRegister={this.handleRegister}
-    //           handleChange={this.authHandleChange}
-    //           formData={this.state.authFormData} />)} />
-    //       <div className="toggle-btn">
-    //         {this.state.currentUser
-    //           ?
-    //           <>
-    //             <p>{this.state.currentUser.username}</p>
-    //             <button onClick={this.handleLogout}>Logout</button>
-    //             <Navbar />
-    //           </>
-    //           :
-    //           <button onClick={this.handleLoginButton}>Login/Register</button>}
-    //       </div>
-    //     </>
-    // }
-    // else {
-    //   display =
-    //     <>
-    //       <Navbar />
-    //     </>
-    // }
-
-
-
     return (
-      // <div className="App">
-      //   {display}
-      // </div>
-
       < div className="App" >
         <header className="header">
           <img className="logo" src={logo} alt="Logo" />
@@ -211,7 +171,7 @@ export class App extends React.Component {
           </div>
         </header>
 
-        <Route exact path="/login" render={() => (
+        <Route exact path="/" render={() => (
           <Login
             handleLogin={this.handleLogin}
             handleChange={this.authHandleChange}

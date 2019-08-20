@@ -2,6 +2,9 @@ import axios from 'axios';
 
 const newsAPI = `https://min-api.cryptocompare.com/data/v2/news/?lang=EN`
 const coinApi = `https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=BTC,USD`
+const xrp = `https://min-api.cryptocompare.com/data/price?fsym=XRP&tsyms=XRP,USD`
+const eth = `https://min-api.cryptocompare.com/data/price?fsym=ETH&tsyms=ETH,USD`
+const bch = `https://min-api.cryptocompare.com/data/price?fsym=BCH&tsyms=BCH,USD`
 const baseUrl = 'http://localhost:3000'
 const MKTApi = `https://api.coinranking.com/v1/public/stats?base=USD`
 const api = axios.create({
@@ -81,18 +84,46 @@ export const fetchNews = async () => {
   return data;
 }
 
-//  Currencies
+//  BTH
 export const apiCurrencies = async () => {
   const resp = await axios.get(coinApi)
   const data = resp.data
   return data;
 }
 
+// XRP
+export const XRP = async () => {
+  const resp = await axios.get(xrp)
+  const data = resp.data
+  return data;
+}
+
+// ETH
+export const ETH = async () => {
+  const resp = await axios.get(eth)
+  const data = resp.data
+  return data;
+}
+
+
+// BCH
+export const BCH = async () => {
+  const resp = await axios.get(bch)
+  const data = resp.data
+  return data;
+}
+
+// LTE
+// export const LTE = async () => {
+//   const resp = await axios.get(lte)
+//   const data = resp.data
+//   return data;
+// }
 
 // MKT Cap
 export const ApiCap = async () => {
   const resp = await axios.get(MKTApi)
   const data = resp.data.data.totalMarketCap
-  console.log(data)
+  // console.log(data)
   return resp;
 }

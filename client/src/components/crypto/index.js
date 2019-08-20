@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { apiCurrencies } from '../services/api-helper'
+import { apiCurrencies } from '../../services/api-helper'
 
 class CryptoCard extends Component {
   constructor(props) {
@@ -15,7 +15,7 @@ class CryptoCard extends Component {
 
   componentDidMount() {
     this.pollPrice()
-    setInterval(this.pollPrice, 1000)
+    setInterval(this.pollPrice, 10000)
   }
 
   async pollPrice() {
@@ -41,21 +41,25 @@ class CryptoCard extends Component {
       ? 'loss'
       : 'gain'
     return (
-      <div className={`card ${gainloss}`}>
-        <div className='name'>
-          {name}
-          <span>({this.state.symbol})</span>
-        </div>
-        <div className={`percantage ${gainloss}`}>
-          {this.priceChnage(lastPrice, price)} %
+      <div className='alignment'>
+        <div className='AllCard'>
+          <div className={`card ${gainloss}`}>
+            <div className='name'>
+              {name}
+              <span>({this.state.symbol})</span>
+            </div>
+            <div className={`percantage ${gainloss}`}>
+              {this.priceChnage(lastPrice, price)} %
         </div>
 
 
-        <div className='logo'>
+            <div className='logo'>
 
-        </div>
-        <div className={`price ${gainloss}`}>
-          {price}
+            </div>
+            <div className={`price ${gainloss}`}>
+              {price}
+            </div>
+          </div>
         </div>
       </div>
     )
