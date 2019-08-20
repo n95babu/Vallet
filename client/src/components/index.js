@@ -15,7 +15,7 @@ class CryptoCard extends Component {
 
   componentDidMount() {
     this.pollPrice()
-    setInterval(this.pollPrice, 10000)
+    setInterval(this.pollPrice, 1000)
   }
 
   async pollPrice() {
@@ -36,7 +36,7 @@ class CryptoCard extends Component {
   }
 
   render() {
-    const { name, symbol, price, lastPrice } = this.state
+    const { name, price, lastPrice } = this.state
     const gainloss = lastPrice > price
       ? 'loss'
       : 'gain'

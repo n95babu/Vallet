@@ -3,7 +3,6 @@ import './App.css';
 import { Route, Link } from 'react-router-dom'
 import { withRouter } from 'react-router';
 import logo from './assets/vallet.png'
-
 import UserForm from './components/UserForm'
 import News from './components/News'
 import Login from './components/Login'
@@ -12,6 +11,7 @@ import Dashboard from './components/Dashboard'
 import CreateCoin from './components/CreateCoin'
 import LandingPg from './components/LandingPg'
 import Navbar from './components/Navbar'
+
 import {
   loginUser,
   registerUser,
@@ -20,7 +20,8 @@ import {
   createCoin,
   fetchNews,
   deleteCoin,
-  fetchCurrentUser
+  fetchCurrentUser,
+  ApiCap
 } from './services/api-helper';
 
 
@@ -30,6 +31,7 @@ export class App extends React.Component {
     this.state = {
       user: [],
       news: [],
+      totalMarketCap: [],
       currentUser: null,
       authFormData: {
         email: "",
@@ -44,8 +46,10 @@ export class App extends React.Component {
   }
   async componentDidMount() {
     const data = await fetchNews();
+    const cap = await ApiCap();
     this.setState({
-      news: data
+      news: data,
+      totalMarketCap: cap
     });
 
     const user = await verifyUser();
@@ -89,9 +93,12 @@ export class App extends React.Component {
 
 
   deleteCoin = async (id) => {
-    await deleteCoin(id);
+    await deleteCoin(this.state.currentUser.id, id);
     this.setState(prevState => ({
-      currency: prevState.currency.filter(currency => currency.id !== id)
+      currentUser: {
+        ...prevState.currentUser,
+        currencies: prevState.currentUser.currencies.filter(currency => currency.id !== id)
+      }
     }))
   }
 
@@ -116,7 +123,7 @@ export class App extends React.Component {
     e.preventDefault();
     await registerUser(this.state.authFormData);
     this.handleLogin();
-    this.props.history.push('/home')
+    this.props.history.push('/login')
   }
 
   handleLogout = () => {
@@ -157,6 +164,7 @@ export class App extends React.Component {
     //           <>
     //             <p>{this.state.currentUser.username}</p>
     //             <button onClick={this.handleLogout}>Logout</button>
+    //             <Navbar />
     //           </>
     //           :
     //           <button onClick={this.handleLoginButton}>Login/Register</button>}
@@ -173,6 +181,9 @@ export class App extends React.Component {
 
 
     return (
+      // <div className="App">
+      //   {display}
+      // </div>
 
       < div className="App" >
         <header className="header">
@@ -216,6 +227,7 @@ export class App extends React.Component {
           render={() =>
             <Dashboard
               currentUser={this.state.currentUser}
+              deleteCoin={this.deleteCoin}
             />}
         />
         <Route exact path="/home"

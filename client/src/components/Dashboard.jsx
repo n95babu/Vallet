@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
-import { userCurrencies } from '../services/api-helper'
-import { Link } from 'react-router-dom';
-import { Button, Card } from 'react-bootstrap';
+import { userCurrencies, ApiCap } from '../services/api-helper'
+
+import { Link, withRouter } from 'react-router-dom';
+import { Button } from 'react-bootstrap';
 import CryptoCard from './index'
+// import MKCap from './MKCap'
 
 export class Dashboard extends Component {
   constructor(props) {
@@ -19,6 +21,7 @@ export class Dashboard extends Component {
     })
   }
 
+
   render() {
     let user;
     if (this.props.currentUser) {
@@ -31,6 +34,10 @@ export class Dashboard extends Component {
     return (
       <div className="DashBoard">
         <h3 className="currentUser">Welcome, {user.first_name}!</h3>
+        <CryptoCard
+          name="Bitcoin"
+          symbol="BTC"
+        />
         {
           user.currencies.map(currency => (
             <div className="currency" key={currency.id}>
@@ -40,7 +47,7 @@ export class Dashboard extends Component {
               <Button variant="danger"
                 onClick={() => {
                   this.props.deleteCoin(currency.id);
-                  this.push.history.push('/dashboard')
+                  this.props.history.push('/dashboard')
                 }} > Delete</Button>
             </div>
           ))
@@ -50,13 +57,9 @@ export class Dashboard extends Component {
           &nbsp; &nbsp; &nbsp;
           <Link to='/new/user'>UPDATE PROFILE</Link>
         </div>
-        <CryptoCard
-          name="Bitcoin"
-          symbol="BTC"
-        />
       </div>
     )
   }
-}
+};
 
-export default Dashboard
+export default withRouter(Dashboard);

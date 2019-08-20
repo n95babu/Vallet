@@ -92,6 +92,7 @@ export const apiCurrencies = async () => {
 // MKT Cap
 export const ApiCap = async () => {
   const resp = await axios.get(MKTApi)
-  console.log(resp)
+  const data = resp.data.data.totalMarketCap
+  console.log(data)
   return resp;
 }

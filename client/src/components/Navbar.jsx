@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
-import { withRouter, Link } from 'react-router-dom';
+import { Route, Link } from 'react-router-dom'
+
 import logo from '../assets/vallet.png'
+import Dashboard from './Dashboard'
+import LandingPg from './LandingPg'
 
 
 export class Navbar extends Component {
@@ -8,10 +11,10 @@ export class Navbar extends Component {
     super(props);
   };
 
-  logOut = (props) => {
-    localStorage.clear();
-    this.props.history.push('/home')
-  }
+  // logOut = (props) => {
+  //   localStorage.clear();
+  //   this.props.history.push('/home')
+  // }
 
 
 
@@ -32,6 +35,24 @@ export class Navbar extends Component {
             <li><Link to="/news">News</Link></li>
           </ul>
         </div>
+
+
+        <Route exact path="/dashboard"
+          render={() =>
+            <Dashboard
+              currentUser={this.state.currentUser}
+            />}
+        />
+
+        <Route exact path="/home"
+          render={(props) => (
+            <LandingPg />
+
+          )}
+
+        />
+
+
       </div>
     )
   }

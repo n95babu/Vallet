@@ -2,8 +2,9 @@
 
 .App {
   text-align: center;
-  background: #060B13;
+  background: #0D182F;
   color: #fafafa;
+  min-height: 100vh;
 }
 
 html {
@@ -14,6 +15,8 @@ body {
   margin: 0;
   padding: 0;
 }
+
+/* =================================New ======================= */
 
 .newsTitle {
   position: relative;
@@ -27,7 +30,9 @@ body {
 
 .newsItem {
   padding-top: 200px;
+  padding-left: 20%;
   font-size: 14px;
+  text-align: center;
   display: grid;
   grid-template-columns: 45% 45%;
   grid-column-gap: 40px;
@@ -50,6 +55,8 @@ body {
   float: left;
 }
 
+/* ===========================Auth========================= */
+
 .auth-container {
   margin: 25px auto;
   padding: 1em 1.5em;
@@ -69,6 +76,10 @@ body {
   font-size: 20px;
 }
 
+form p {
+  color: black;
+}
+
 .form-button {
   margin: 20px 0 10px 0;
   width: 20%;
@@ -82,7 +93,7 @@ body {
 
 .form-button:hover {
   background-color: #36713D;
-  color: white;
+  color: black;
 }
 
 .header {
@@ -91,6 +102,7 @@ body {
   left: 15px;
   right: 15px;
   padding: 0;
+  /* background: #050C1C; */
 }
 
 .UserUpdate {
@@ -127,7 +139,8 @@ footer {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  height: 50vh;
+  /* height: 50vh; */
+  background: #050C1C;
 }
 
 /* =================================Crypto Card ===================================== */
