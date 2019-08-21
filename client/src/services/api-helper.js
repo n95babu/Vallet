@@ -5,6 +5,7 @@ const coinApi = `https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=BTC
 const xrp = `https://min-api.cryptocompare.com/data/price?fsym=XRP&tsyms=XRP,USD`
 const eth = `https://min-api.cryptocompare.com/data/price?fsym=ETH&tsyms=ETH,USD`
 const bch = `https://min-api.cryptocompare.com/data/price?fsym=BCH&tsyms=BCH,USD`
+const lte = `https://min-api.cryptocompare.com/data/price?fsym=LTC&tsyms=LTC,USD`
 const baseUrl = 'http://localhost:3000'
 const MKTApi = `https://api.coinranking.com/v1/public/stats?base=USD`
 const api = axios.create({
@@ -114,11 +115,11 @@ export const BCH = async () => {
 }
 
 // LTE
-// export const LTE = async () => {
-//   const resp = await axios.get(lte)
-//   const data = resp.data
-//   return data;
-// }
+export const LTC = async () => {
+  const resp = await axios.get(lte)
+  const data = resp.data
+  return data;
+}
 
 // MKT Cap
 export const ApiCap = async () => {

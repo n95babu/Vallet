@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import { apiCurrencies } from '../../services/api-helper'
+import { BCH } from '../../services/api-helper'
 
-class CryptoCard extends Component {
+class BCHCoin extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -19,7 +19,7 @@ class CryptoCard extends Component {
   }
 
   async pollPrice() {
-    const data = await apiCurrencies();
+    const data = await BCH();
     this.setState((prevState) => ({
       price: data.USD,
       lastPrice: prevState.price !== data.USD
@@ -66,4 +66,4 @@ class CryptoCard extends Component {
   }
 }
 
-export default CryptoCard;
+export default BCHCoin;

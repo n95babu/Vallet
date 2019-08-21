@@ -156,18 +156,17 @@ export class App extends React.Component {
                 <Link to="/dashboard">Dashboard</Link>
                 &nbsp; &nbsp; &nbsp;
                 <Link to="/news">News</Link>
+
+                {this.state.currentUser
+                  ?
+                  <>
+                    <p>{this.state.currentUser.username}</p>
+                    <Link onClick={this.handleLogout}>Logout</Link>
+                  </>
+                  :
+                  <button onClick={this.handleLoginButton}></button>}
               </li>
             </ul>
-          </div>
-          <div>
-            {this.state.currentUser
-              ?
-              <>
-                <p>{this.state.currentUser.username}</p>
-                <Link id="header-nav" onClick={this.handleLogout}>Logout</Link>
-              </>
-              :
-              <button onClick={this.handleLoginButton}></button>}
           </div>
         </header>
 

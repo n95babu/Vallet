@@ -57,7 +57,7 @@ class XRPCoin extends Component {
 
             </div>
             <div className={`price ${gainloss}`}>
-              {price}
+              ${price}
             </div>
           </div>
         </div>

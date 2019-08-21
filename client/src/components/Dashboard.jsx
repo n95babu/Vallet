@@ -6,6 +6,8 @@ import { Button } from 'react-bootstrap';
 import CryptoCard from './crypto/index'
 import XRPCoin from './crypto/xrp'
 import EthCoin from './crypto/Eth'
+import BCHCoin from './crypto/Bch'
+import LTCCoin from './crypto/Lite'
 // import MKCap from './MKCap'
 
 export class Dashboard extends Component {
@@ -44,15 +46,15 @@ export class Dashboard extends Component {
             name="Ethereum"
             symbol="ETH"
           />
-          <CryptoCard
+          <LTCCoin
             name="Litecoin"
-            symbol="Lite"
+            symbol="LTC"
           />
           <XRPCoin
             name="Ripple"
             symbol="XRP"
           />
-          <CryptoCard
+          <BCHCoin
             name="Bitcoin Cash"
             symbol="BCH"
           />
