@@ -91,7 +91,6 @@ export class App extends React.Component {
     }));
   }
 
-
   deleteCoin = async (id) => {
     await deleteCoin(this.state.currentUser.id, id);
     this.setState(prevState => ({
@@ -151,25 +150,22 @@ export class App extends React.Component {
           <div id="header-nav">
             <ul>
               <li>
-                <Link to="/home">Home</Link>
-                &nbsp; &nbsp; &nbsp;
-                <Link to="/dashboard">Dashboard</Link>
-                &nbsp; &nbsp; &nbsp;
-                <Link to="/news">News</Link>
-
                 {this.state.currentUser
-                  ?
+                  &&
                   <>
-                    <p>{this.state.currentUser.username}</p>
+                    <Link to="/home">Home</Link>
+                    &nbsp; &nbsp; &nbsp;
+                    <Link to="/dashboard">Dashboard</Link>
+                    &nbsp; &nbsp; &nbsp;
+                    <Link to="/news">News</Link>
+                    &nbsp; &nbsp; &nbsp;
                     <Link onClick={this.handleLogout}>Logout</Link>
                   </>
-                  :
-                  <button onClick={this.handleLoginButton}></button>}
+                }
               </li>
             </ul>
           </div>
         </header>
-
         <Route exact path="/" render={() => (
           <Login
             handleLogin={this.handleLogin}
@@ -180,7 +176,6 @@ export class App extends React.Component {
             handleRegister={this.handleRegister}
             handleChange={this.authHandleChange}
             formData={this.state.authFormData} />)} />
-
 
         <Route exact path="/dashboard"
           render={() =>

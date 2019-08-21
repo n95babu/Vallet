@@ -11,13 +11,6 @@ export class Navbar extends Component {
     super(props);
   };
 
-  // logOut = (props) => {
-  //   localStorage.clear();
-  //   this.props.history.push('/home')
-  // }
-
-
-
   render() {
     return (
       <div className="header">
@@ -35,7 +28,6 @@ export class Navbar extends Component {
             <li><Link to="/news">News</Link></li>
           </ul>
         </div>
-
 
         <Route exact path="/dashboard"
           render={() =>
