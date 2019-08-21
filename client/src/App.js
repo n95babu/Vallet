@@ -10,7 +10,6 @@ import Register from './components/Register'
 import Dashboard from './components/Dashboard'
 import CreateCoin from './components/CreateCoin'
 import LandingPg from './components/LandingPg'
-import Navbar from './components/Navbar'
 
 import {
   loginUser,
@@ -41,9 +40,10 @@ export class App extends React.Component {
         coin: "",
         amount: 0,
         user_id: ""
-      }
+      },
     };
-  }
+  };
+
   async componentDidMount() {
     const data = await fetchNews();
     const cap = await ApiCap();
@@ -58,8 +58,8 @@ export class App extends React.Component {
       currentUser: currentUser,
       coinFormData: {
         user_id: user.id
-      }
-    })
+      },
+    });
   };
 
   handleUpdateUser = async (data) => {
@@ -76,10 +76,10 @@ export class App extends React.Component {
       coinFormData: {
         coin: "",
         amount: "",
-      }
-    }))
+      },
+    }));
     this.props.history.push('/dashboard')
-  }
+  };
 
   handleCoinFormChange = async (e) => {
     const { name, value } = e.target;
@@ -87,9 +87,9 @@ export class App extends React.Component {
       coinFormData: {
         ...prevState.coinFormData,
         [name]: value
-      }
+      },
     }));
-  }
+  };
 
   deleteCoin = async (id) => {
     await deleteCoin(this.state.currentUser.id, id);
@@ -97,14 +97,14 @@ export class App extends React.Component {
       currentUser: {
         ...prevState.currentUser,
         currencies: prevState.currentUser.currencies.filter(currency => currency.id !== id)
-      }
-    }))
-  }
+      },
+    }));
+  };
 
-  //  Auth
+  //===================================== Auth ================================================
   handleLoginButton = () => {
     this.props.history.push("/")
-  }
+  };
 
   handleLogin = async () => {
     const userData = await loginUser(this.state.authFormData);
@@ -113,25 +113,25 @@ export class App extends React.Component {
       currentUser: currentUser,
       coinFormData: {
         user_id: currentUser.id
-      }
-    })
+      },
+    });
     this.props.history.push('/home')
-  }
+  };
 
   handleRegister = async (e) => {
     e.preventDefault();
     await registerUser(this.state.authFormData);
     this.handleLogin();
     this.props.history.push('/')
-  }
+  };
 
   handleLogout = () => {
     localStorage.removeItem("authToken");
     this.setState({
       currentUser: null
-    })
+    });
     this.props.history.push('/')
-  }
+  };
 
   authHandleChange = (e) => {
     const { name, value } = e.target;
@@ -139,9 +139,13 @@ export class App extends React.Component {
       authFormData: {
         ...prevState.authFormData,
         [name]: value
-      }
+      },
     }));
-  }
+  };
+
+
+
+
   render() {
     return (
       < div className="App" >
@@ -187,9 +191,7 @@ export class App extends React.Component {
         <Route exact path="/home"
           render={(props) => (
             <LandingPg />
-
           )}
-
         />
         <Route exact path="/new/user"
           render={(props) => (
