@@ -1,10 +1,11 @@
 /* ==========================Global CSS=========================== */
 
-.App {
+/* .App {
   text-align: center;
   background: #0D182F;
   color: #fafafa;
   min-height: 100vh;
+
 }
 
 html {
@@ -14,6 +15,24 @@ html {
 body {
   margin: 0;
   padding: 0;
+} */
+
+.App {
+  text-align: center;
+  color: #fafafa;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  scroll-behavior: smooth;
+  background: #0D182F;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  width: 100%;
 }
 
 /* =================================New ======================= */
@@ -57,13 +76,35 @@ body {
 
 /* ===========================Auth========================= */
 
-.auth-container {
+/* .auth-container {
   margin: 25px auto;
   padding: 1em 1.5em;
   background: #fafafa;
   border: 1px solid hsl(0, 0%, 92%);
   border-radius: 5px;
   padding-top: 150px;
+} */
+
+.auth-container {
+  margin: 18rem 36rem;
+  background-color: white;
+  padding: 2rem;
+  opacity: 1.9;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  border-radius: 800px solid;
+  border-style: ridge;
+  width: 35%;
+}
+
+.auth-container button {
+  background-color: rgb(122, 120, 120);
+  cursor: pointer;
+  border-radius: 4px;
+  width: 20vh;
+  height: 4vh;
+  z-index: auto;
+  font-size: 18px;
+  box-shadow: 10px 10px 5px whitesmoke;
 }
 
 .form-input {

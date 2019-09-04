@@ -20,7 +20,7 @@ const Login = (props) => {
         <input name="password" type="password" value={props.formData.password} onChange={props.handleChange} />
         <hr />
         <button className="form-button">Login</button>
-        <Link to="/register">Register</Link>
+        <Link to="/register"><button type="button">Register</button></Link>
       </form>
     </div>
   );
