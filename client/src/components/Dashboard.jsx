@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { userCurrencies } from '../services/api-helper'
 
 import { Link, withRouter } from 'react-router-dom';
-import { Button } from 'react-bootstrap';
+import { button } from 'react-bootstrap';
 import CryptoCard from './crypto/index'
 import XRPCoin from './crypto/xrp'
 import EthCoin from './crypto/Eth'
@@ -64,18 +64,18 @@ export class Dashboard extends Component {
             <div className="currency" key={currency.id}>
               <p>{currency.coin}</p>
               <p>{currency.amount}</p>
-              <Button variant="danger"
+              <button className="delete_coin"
                 onClick={() => {
                   this.props.deleteCoin(currency.id);
                   this.props.history.push('/dashboard')
-                }} > Delete</Button>
+                }} > Delete</button>
             </div>
           ))
         }
         <div className="DashBoard-Links">
-          <Link to="/new/coin">Add Coin</Link>
+          <Link to="/new/coin"><button className="add_coin">Add Coin</button></Link>
           &nbsp; &nbsp; &nbsp;
-          <Link to='/new/user'>UPDATE PROFILE</Link>
+          <Link to='/new/user'><button>UPDATE PROFILE</button></Link>
         </div>
       </div>
     )

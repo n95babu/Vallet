@@ -1,22 +1,5 @@
 /* ==========================Global CSS=========================== */
 
-/* .App {
-  text-align: center;
-  background: #0D182F;
-  color: #fafafa;
-  min-height: 100vh;
-
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  margin: 0;
-  padding: 0;
-} */
-
 .App {
   text-align: center;
   color: #fafafa;
@@ -75,15 +58,6 @@ html, body {
 }
 
 /* ===========================Auth========================= */
-
-/* .auth-container {
-  margin: 25px auto;
-  padding: 1em 1.5em;
-  background: #fafafa;
-  border: 1px solid hsl(0, 0%, 92%);
-  border-radius: 5px;
-  padding-top: 150px;
-} */
 
 .auth-container {
   margin: 18rem 36rem;
@@ -226,6 +200,14 @@ footer {
 
 .card .percantage.loss, .card .price.gain {
   color: red;
+}
+
+.delete_coin:hover {
+  background-color: red;
+}
+
+.add_coin:hover {
+  background-color: #36713D;
 }
 
 /* ================================Landing PG ============================================ */
