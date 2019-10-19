@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 
-const newsAPI = `https://min-api.cryptocompare.com/data/v2/news/?lang=EN`
+const newsAPI = `https://min-api.cryptocompare.com/data/v2/news/?feeds=cryptocompare&lTs=1506478327&extraParams=YourSite`
 const coinApi = `https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=BTC,USD`
 const xrp = `https://min-api.cryptocompare.com/data/price?fsym=XRP&tsyms=XRP,USD`
 const eth = `https://min-api.cryptocompare.com/data/price?fsym=ETH&tsyms=ETH,USD`

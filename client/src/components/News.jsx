@@ -1,15 +1,19 @@
 import React from 'react';
 
-
 export default (props) => (
-  <div>
+  <>
     <div className='newsItem' >
       {props.news.map(news => (
         <div key={news.id}>
-          <h3 className="newsTitle">{news.title}</h3>
+          <div class="card" id='news_card'>
+            <div class="card-body">
+              <h5 class="card-title">{news.title}</h5>
+            </div>
+          </div>
         </div>
       ))}
     </div>
-  </div >
+
+  </>
 )
 

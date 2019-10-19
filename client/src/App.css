@@ -11,7 +11,7 @@
 
 html, body {
   scroll-behavior: smooth;
-  background: #0D182F;
+  /* background: #0D182F; */
   height: 100vh;
   margin: 0;
   padding: 0;
@@ -33,12 +33,12 @@ html, body {
 .newsItem {
   padding-top: 200px;
   padding-left: 20%;
-  font-size: 14px;
+  font-size: 16px;
   text-align: center;
   display: grid;
   grid-template-columns: 45% 45%;
   grid-column-gap: 40px;
-  color: green;
+  color: white;
   letter-spacing: 0.34px;
 }
 
@@ -57,10 +57,14 @@ html, body {
   float: left;
 }
 
+#news_card {
+  width: 18rem;
+}
+
 /* ===========================Auth========================= */
 
 .auth-container {
-  margin: 18rem 36rem;
+  margin: 30%;
   background-color: white;
   padding: 2rem;
   opacity: 1.9;
@@ -71,7 +75,6 @@ html, body {
 }
 
 .auth-container button {
-  background-color: rgb(122, 120, 120);
   cursor: pointer;
   border-radius: 4px;
   width: 20vh;
@@ -81,7 +84,11 @@ html, body {
   box-shadow: 10px 10px 5px whitesmoke;
 }
 
-.form-input {
+.auth-container h2 {
+  color: black;
+}
+
+/* .form-input {
   margin: 10px 0;
   padding: 0 10px;
   width: 90%;
@@ -89,7 +96,7 @@ html, body {
   border: 1px solid #000000;
   border-radius: 5px;
   font-size: 20px;
-}
+} */
 
 form p {
   color: black;
@@ -159,6 +166,10 @@ footer {
 
 /* =================================Crypto Card ===================================== */
 
+.landingpg {
+  padding-top: 100px;
+}
+
 .AllCard {
   display: flex;
   flex-direction: row;
@@ -212,12 +223,20 @@ footer {
 
 /* ================================Landing PG ============================================ */
 
-.landin {
+html {
+  background: linear-gradient( 45deg, rgba(171, 152, 122, 0.8), rgba(0, 0, 128, 0.4)), url(./assets/vallet.gif);
+  /* background: url('./assets/nb3.gif'); */
+  background-size: cover;
+  background-position: center center;
+  color: white;
+}
+
+/* .landin {
   padding-top: 200px;
   display: block;
   margin-left: auto;
   margin-right: auto
-}
+} */
 
 .create-form {
   padding-top: 200px;

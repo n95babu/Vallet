@@ -217,9 +217,9 @@ export class App extends React.Component {
           )}
         />
 
-        <footer>
+        {/* <footer>
           <h5>@Vallet 2019. All Rights Reserved. </h5>
-        </footer>
+        </footer> */}
       </div >
     )
   }
