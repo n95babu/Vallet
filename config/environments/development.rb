@@ -45,22 +45,10 @@ Rails.application.configure do
   config.active_record.verbose_query_logs = true
 
 
-  config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.perform_deliveries = true
-  config.action_mailer.delivery_method = :smtp
-
-# SMTP settings for gmail
-config.action_mailer.smtp_settings = {
- :address              => "smtp.gmail.com",
- :port                 => 587,
- :user_name            => 'valletexc@gmail.com',
- :password             => 'Macadmin1',
- :authentication       => "plain",
-:enable_starttls_auto => true
-}
+  
 
   # Raises error for missing translations
-  # config.action_view.raise_on_missing_translations = true
+  config.action_view.raise_on_missing_translations = true
 
   # Use an evented file watcher to asynchronously detect changes in source code,
   # routes, locales, etc. This feature depends on the listen gem.
