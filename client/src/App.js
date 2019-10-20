@@ -11,6 +11,15 @@ import Dashboard from './components/Dashboard'
 import CreateCoin from './components/CreateCoin'
 import LandingPg from './components/LandingPg'
 
+import { makeStyles } from '@material-ui/core/styles';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
+import Button from '@material-ui/core/Button';
+import IconButton from '@material-ui/core/IconButton';
+// import MenuIcon from '@material-ui/icons/Menu';
+
+
 import {
   loginUser,
   registerUser,
@@ -22,6 +31,19 @@ import {
   fetchCurrentUser,
   ApiCap
 } from './services/api-helper';
+
+
+const useStyles = makeStyles(theme => ({
+  root: {
+    flexGrow: 1,
+  },
+  menuButton: {
+    marginRight: theme.spacing(2),
+  },
+  title: {
+    flexGrow: 1,
+  },
+}));
 
 
 export class App extends React.Component {
@@ -148,7 +170,7 @@ export class App extends React.Component {
 
   render() {
     return (
-      < div className="App" >
+      <div className="App" >
         <header className="header">
           <img className="logo" src={logo} alt="Logo" />
           <div id="header-nav">
@@ -220,7 +242,7 @@ export class App extends React.Component {
         {/* <footer>
           <h5>@Vallet 2019. All Rights Reserved. </h5>
         </footer> */}
-      </div >
+      </div>
     )
   }
 }

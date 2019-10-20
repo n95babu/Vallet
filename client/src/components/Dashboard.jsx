@@ -35,7 +35,7 @@ export class Dashboard extends Component {
     }
 
     return (
-      <div className="DashBoard">
+      <div className="page DashBoard">
         <h3 className="currentUser">Welcome, {user.first_name}!</h3>
         <div className='AllCard'>
           <CryptoCard

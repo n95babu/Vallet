@@ -8,7 +8,7 @@ import React from 'react';
 
 export default function LandingPg() {
   return (
-    <div className="landingpg">
+    <div className="page landingpg">
       <h1>Live Crypto</h1>
       <p>Under Construction</p>
 

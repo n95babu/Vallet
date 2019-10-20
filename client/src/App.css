@@ -9,18 +9,32 @@
   box-sizing: border-box;
 }
 
-html, body {
+/* html, body {
   scroll-behavior: smooth;
-  /* background: #0D182F; */
   height: 100vh;
   margin: 0;
   padding: 0;
   width: 100%;
+} */
+
+.page {
+  text-align: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+html {
+  background: linear-gradient( 45deg, rgba(171, 152, 122, 0.8), rgba(0, 0, 128, 0.4)), url(./assets/vallet.gif);
+  background-size: cover;
+  background-position: center center;
+  color: white;
 }
 
 /* =================================New ======================= */
 
-.newsTitle {
+/* .newsTitle {
   position: relative;
   width: 300px;
   height: auto;
@@ -28,7 +42,7 @@ html, body {
   border-radius: 4px;
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
   transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
-}
+} */
 
 .newsItem {
   padding-top: 200px;
@@ -53,12 +67,20 @@ html, body {
 }
 
 .logo {
-  max-width: 120px;
+  max-width: 80px;
   float: left;
 }
 
 #news_card {
   width: 18rem;
+}
+
+.header {
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  right: 15px;
+  padding: 0;
 }
 
 /* ===========================Auth========================= */
@@ -118,16 +140,12 @@ form p {
   color: black;
 }
 
-.header {
-  position: fixed;
-  top: 15px;
-  left: 15px;
-  right: 15px;
-  padding: 0;
+.Join_button {
+  padding-top: 40px;
 }
 
 .UserUpdate {
-  min-height: 50vh;
+  min-height: 100vh;
 }
 
 #header-nav {
@@ -152,7 +170,7 @@ form p {
 }
 
 .landin {
-  height: 50vh;
+  height: 100vh;
 }
 
 footer {
@@ -162,6 +180,10 @@ footer {
   align-items: center;
   /* height: 50vh; */
   background: #050C1C;
+}
+
+.reg_button {
+  padding-top: 0px;
 }
 
 /* =================================Crypto Card ===================================== */
@@ -177,7 +199,6 @@ footer {
 }
 
 .card {
-  /* display: flex; */
   border-radius: 4px;
   width: 200px;
   height: 100px;
@@ -221,15 +242,30 @@ footer {
   background-color: #36713D;
 }
 
-/* ================================Landing PG ============================================ */
-
-html {
-  background: linear-gradient( 45deg, rgba(171, 152, 122, 0.8), rgba(0, 0, 128, 0.4)), url(./assets/vallet.gif);
-  /* background: url('./assets/nb3.gif'); */
-  background-size: cover;
-  background-position: center center;
-  color: white;
+@media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
+  .card {
+    border-radius: 4px;
+    width: 200px;
+    height: 100px;
+  }
+  .AllCard {
+    display: row;
+    flex-direction: flex;
+    justify-content: center;
+  }
+  .header {
+    position: fixed;
+    top: 0;
+    width: 100%
+  }
+  .logo {
+    max-width: 60px;
+    float: left;
+  }
+  .header {}
 }
+
+/* ================================Landing PG ============================================ */
 
 /* .landin {
   padding-top: 200px;

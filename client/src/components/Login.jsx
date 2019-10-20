@@ -15,7 +15,8 @@ const Login = (props) => {
           <div className="hero home-hero">
             <div>
               <animated.div style={gif}>
-                <h2>login</h2>
+                <h2>Welcome back!</h2>
+
                 <hr />
                 <form onSubmit={(e) => {
                   e.preventDefault();
@@ -27,9 +28,9 @@ const Login = (props) => {
                   <p>Password:</p>
                   <input name="password" type="password" value={props.formData.password} onChange={props.handleChange} />
                   <hr />
-                  <button className="form-button">Login</button>
-                  <Link to="/register"><button type="button">Register</button></Link>
+                  <button className="form-button">SIGN IN</button>
                 </form>
+                <Link to="/register"><button type="button">Register</button></Link>
               </animated.div>
             </div>
           </div>

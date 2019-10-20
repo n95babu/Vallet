@@ -2,7 +2,7 @@ import React from 'react';
 
 export default (props) => (
   <>
-    <div className='newsItem' >
+    <div className='page newsItem' >
       {props.news.map(news => (
         <div key={news.id}>
           <div class="card" id='news_card'>
