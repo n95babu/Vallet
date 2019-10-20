@@ -45,14 +45,15 @@ Rails.application.configure do
   config.active_record.verbose_query_logs = true
 
 
+  config.action_mailer.raise_delivery_errors = true
   config.action_mailer.perform_deliveries = true
 
 # SMTP settings for gmail
 config.action_mailer.smtp_settings = {
  :address              => "smtp.gmail.com",
  :port                 => 587,
- :user_name            => ENV['gmail_username'],
- :password             => ENV['gmail_password'],
+ :user_name            => 'valletexc@gmail.com',
+ :password             => 'Macadmin1',
  :authentication       => "plain",
 :enable_starttls_auto => true
 }

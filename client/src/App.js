@@ -122,7 +122,7 @@ export class App extends React.Component {
     e.preventDefault();
     await registerUser(this.state.authFormData);
     this.handleLogin();
-    this.props.history.push('/')
+    this.props.history.push('/home')
   };
 
   handleLogout = () => {
