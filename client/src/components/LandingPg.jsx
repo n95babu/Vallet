@@ -1,18 +1,19 @@
 import React from 'react';
-import CryptoCard from './crypto/index';
-import XRPCoin from './crypto/xrp';
-import EthCoin from './crypto/Eth';
-import BCHCoin from './crypto/Bch';
-import LTCCoin from './crypto/Lite';
+// import CryptoCard from './crypto/index';
+// import XRPCoin from './crypto/xrp';
+// import EthCoin from './crypto/Eth';
+// import BCHCoin from './crypto/Bch';
+// import LTCCoin from './crypto/Lite';
 
 
 export default function LandingPg() {
   return (
     <div className="landingpg">
       <h1>Live Crypto</h1>
+      <p>Under Construction</p>
 
       {/* <img className="landin" src={landin} alt="Logo" /> */}
-      <div className='AllCard'>
+      {/* <div className='AllCard'>
         <CryptoCard
           name="Bitcoin"
           symbol="BTC"
@@ -33,7 +34,7 @@ export default function LandingPg() {
           name="Bitcoin Cash"
           symbol="BCH"
         />
-      </div>
+      </div> */}
     </div>
   )
 }
