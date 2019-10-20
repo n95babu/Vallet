@@ -7,8 +7,8 @@ const xrp = `https://min-api.cryptocompare.com/data/price?fsym=XRP&tsyms=XRP,USD
 const eth = `https://min-api.cryptocompare.com/data/price?fsym=ETH&tsyms=ETH,USD`
 const bch = `https://min-api.cryptocompare.com/data/price?fsym=BCH&tsyms=BCH,USD`
 const lte = `https://min-api.cryptocompare.com/data/price?fsym=LTC&tsyms=LTC,USD`
-// const baseUrl = 'http://localhost:3000'
-const baseUrl = 'https://thawing-journey-86054.herokuapp.com'
+const baseUrl = 'http://localhost:3000'
+// const baseUrl = 'https://thawing-journey-86054.herokuapp.com'
 const MKTApi = `https://api.coinranking.com/v1/public/stats?base=USD`
 const api = axios.create({
   baseURL: baseUrl
