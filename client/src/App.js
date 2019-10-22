@@ -1,24 +1,16 @@
-import React from 'react'
+import React from 'react';
 import './App.css';
 import { Route, Link } from 'react-router-dom'
 import { withRouter } from 'react-router';
-import logo from './assets/vallet.png'
-import UserForm from './components/UserForm'
-import News from './components/News'
-import Login from './components/Login'
-import Register from './components/Register'
-import Dashboard from './components/Dashboard'
-import CreateCoin from './components/CreateCoin'
-import LandingPg from './components/LandingPg'
-
-import { makeStyles } from '@material-ui/core/styles';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
-import IconButton from '@material-ui/core/IconButton';
-// import MenuIcon from '@material-ui/icons/Menu';
-
+import logo from './assets/vallet.png';
+import UserForm from './components/UserForm';
+import News from './components/News';
+import Login from './components/Login';
+import Register from './components/Register';
+import Dashboard from './components/Dashboard';
+import CreateCoin from './components/CreateCoin';
+import LandingPg from './components/LandingPg';
+import Footer from './components/Footer';
 
 import {
   loginUser,
@@ -32,18 +24,6 @@ import {
   ApiCap
 } from './services/api-helper';
 
-
-const useStyles = makeStyles(theme => ({
-  root: {
-    flexGrow: 1,
-  },
-  menuButton: {
-    marginRight: theme.spacing(2),
-  },
-  title: {
-    flexGrow: 1,
-  },
-}));
 
 
 export class App extends React.Component {
@@ -212,7 +192,10 @@ export class App extends React.Component {
         />
         <Route exact path="/home"
           render={(props) => (
-            <LandingPg />
+            <LandingPg
+              totalMarketCap={this.state.totalMarketCap}
+
+            />
           )}
         />
         <Route exact path="/new/user"
@@ -239,9 +222,7 @@ export class App extends React.Component {
           )}
         />
 
-        {/* <footer>
-          <h5>@Vallet 2019. All Rights Reserved. </h5>
-        </footer> */}
+        <Footer />
       </div>
     )
   }

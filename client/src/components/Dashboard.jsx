@@ -2,13 +2,29 @@ import React, { Component } from 'react';
 import { userCurrencies } from '../services/api-helper'
 
 import { Link, withRouter } from 'react-router-dom';
-import { button } from 'react-bootstrap';
+// import { button } from 'react-bootstrap';
 import CryptoCard from './crypto/index'
 import XRPCoin from './crypto/xrp'
 import EthCoin from './crypto/Eth'
 import BCHCoin from './crypto/Bch'
 import LTCCoin from './crypto/Lite'
+// import { summarizers } from 'istanbul-lib-report';
 // import MKCap from './MKCap'
+
+// import Button from '@material-ui/core/Button';
+import { makeStyles } from '@material-ui/core/styles';
+import Fab from '@material-ui/core/Fab';
+import AddIcon from '@material-ui/icons/Add';
+import EditIcon from '@material-ui/icons/Edit';
+import DeleteIcon from '@material-ui/icons/Delete';
+
+
+
+const useStyles = makeStyles(theme => ({
+  button: {
+    margin: theme.spacing(1),
+  },
+}));
 
 export class Dashboard extends Component {
   constructor(props) {
@@ -33,6 +49,10 @@ export class Dashboard extends Component {
       user = {}
       user.currencies = []
     }
+
+
+    // const arrSum = arr => arr.reduce((a, b) => a + b, 0)
+
 
     return (
       <div className="page DashBoard">
@@ -64,18 +84,36 @@ export class Dashboard extends Component {
             <div className="currency" key={currency.id}>
               <p>{currency.coin}</p>
               <p>{currency.amount}</p>
-              <button className="delete_coin"
+              {/* <button className="delete_coin"
                 onClick={() => {
                   this.props.deleteCoin(currency.id);
                   this.props.history.push('/dashboard')
-                }} > Delete</button>
+                }} > Delete</button> */}
+
+              <Fab
+                variant="contained"
+                color="secondary"
+                className={useStyles.button}
+                startIcon={<DeleteIcon />}
+                onClick={() => {
+                  this.props.deleteCoin(currency.id);
+                  this.props.history.push('/dashboard')
+                }}
+              >
+                <DeleteIcon fontSize="large" />
+
+              </Fab>
             </div>
           ))
         }
         <div className="DashBoard-Links">
-          <Link to="/new/coin"><button className="add_coin">Add Coin</button></Link>
+          <Link to="/new/coin"><Fab color="primary" aria-label="add" className={useStyles.fab}>
+            <AddIcon />
+          </Fab></Link>
           &nbsp; &nbsp; &nbsp;
-          <Link to='/new/user'><button>UPDATE PROFILE</button></Link>
+          <Link to='/new/user'><Fab color="secondary" aria-label="edit" className={useStyles.fab}>
+            <EditIcon />
+          </Fab></Link>
         </div>
       </div>
     )

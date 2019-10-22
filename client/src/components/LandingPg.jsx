@@ -6,35 +6,16 @@ import React from 'react';
 // import LTCCoin from './crypto/Lite';
 
 
-export default function LandingPg() {
+const LandingPg = (props) => {
   return (
     <div className="page landingpg">
-      <h1>Live Crypto</h1>
-      <p>Under Construction</p>
-
-      {/* <img className="landin" src={landin} alt="Logo" /> */}
-      {/* <div className='AllCard'>
-        <CryptoCard
-          name="Bitcoin"
-          symbol="BTC"
-        />
-        <EthCoin
-          name="Ethereum"
-          symbol="ETH"
-        />
-        <LTCCoin
-          name="Litecoin"
-          symbol="LTC"
-        />
-        <XRPCoin
-          name="Ripple"
-          symbol="XRP"
-        />
-        <BCHCoin
-          name="Bitcoin Cash"
-          symbol="BCH"
-        />
-      </div> */}
+      {/* <h1>Live Crypto</h1> */}
+      <div>
+        <h1 className="Total_cap">TotalMarketCap: ${Math.round(props.totalMarketCap)}</h1>
+      </div>
+      <h1>A connected Wallet for a conected World.</h1>
     </div>
   )
 }
+
+export default LandingPg;

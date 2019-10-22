@@ -3,7 +3,7 @@ import { withRouter } from 'react-router';
 
 function AllCurr(props) {
   return (
-    <div className="coin-container">
+    <div className="page coin-container">
       {props.currency.map(coins => (
         <div
           key={coins.id}

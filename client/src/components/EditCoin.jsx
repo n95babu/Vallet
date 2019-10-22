@@ -3,7 +3,7 @@ import { withRouter } from 'react-router-dom';
 
 function EditCoin(props) {
   return (
-    <div>
+    <div className="page Edit-Coin">
       <h3>Edit Coin</h3>
       <form onSubmit={props.handleSubmit}>
         <input

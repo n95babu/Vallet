@@ -1,4 +1,18 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+
+
+
+
+const useStyles = makeStyles(theme => ({
+  fab: {
+    margin: theme.spacing(1),
+  },
+  extendedIcon: {
+    marginRight: theme.spacing(1),
+  },
+}));
+
 
 export class UserForm extends Component {
   constructor(props) {
@@ -58,6 +72,7 @@ export class UserForm extends Component {
           />
 
           <input
+            className={useStyles.fab}
             type="submit"
             value="Update"
           />

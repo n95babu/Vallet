@@ -9,16 +9,9 @@
   box-sizing: border-box;
 }
 
-/* html, body {
-  scroll-behavior: smooth;
-  height: 100vh;
-  margin: 0;
-  padding: 0;
-  width: 100%;
-} */
-
 .page {
   text-align: center;
+  /* max-height: 100vh; */
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -34,16 +27,6 @@ html {
 
 /* =================================New ======================= */
 
-/* .newsTitle {
-  position: relative;
-  width: 300px;
-  height: auto;
-  text-align: center;
-  border-radius: 4px;
-  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-  transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
-} */
-
 .newsItem {
   padding-top: 200px;
   padding-left: 20%;
@@ -57,12 +40,12 @@ html {
 }
 
 .currency {
-  border: 1px solid black;
+  border: 3px solid black;
   border-radius: 20px;
   margin: 20px;
   padding: 5px;
   color: white;
-  background: #36713D;
+  background: green;
   font-weight: bold;
 }
 
@@ -86,10 +69,10 @@ html {
 /* ===========================Auth========================= */
 
 .auth-container {
-  margin: 30%;
-  background-color: white;
+  margin: 10%;
+  background-color: inherit;
   padding: 2rem;
-  opacity: 1.9;
+  /* opacity: 1.9; */
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   border-radius: 800px solid;
   border-style: ridge;
@@ -103,32 +86,18 @@ html {
   height: 4vh;
   z-index: auto;
   font-size: 18px;
-  box-shadow: 10px 10px 5px whitesmoke;
+  box-shadow: 10px 10px 5px;
 }
-
-.auth-container h2 {
-  color: black;
-}
-
-/* .form-input {
-  margin: 10px 0;
-  padding: 0 10px;
-  width: 90%;
-  height: 50px;
-  border: 1px solid #000000;
-  border-radius: 5px;
-  font-size: 20px;
-} */
 
 form p {
-  color: black;
+  font-size: 20px;
 }
 
 .form-button {
   margin: 20px 0 10px 0;
   width: 20%;
   height: 55px;
-  border: 1px solid #000000;
+  border: 1px solid;
   border-radius: 5px;
   text-transform: uppercase;
   font-weight: bold;
@@ -137,7 +106,6 @@ form p {
 
 .form-button:hover {
   background-color: #36713D;
-  color: black;
 }
 
 .Join_button {
@@ -171,15 +139,6 @@ form p {
 
 .landin {
   height: 100vh;
-}
-
-footer {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  /* height: 50vh; */
-  background: #050C1C;
 }
 
 .reg_button {
@@ -262,17 +221,14 @@ footer {
     max-width: 60px;
     float: left;
   }
-  .header {}
 }
 
 /* ================================Landing PG ============================================ */
 
-/* .landin {
-  padding-top: 200px;
-  display: block;
-  margin-left: auto;
-  margin-right: auto
-} */
+.Total_cap {
+  /* border: solid red 5px; */
+  font-size: 20px;
+}
 
 .create-form {
   padding-top: 200px;

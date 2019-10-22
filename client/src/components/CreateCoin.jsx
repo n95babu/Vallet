@@ -1,9 +1,10 @@
 import React from 'react'
 import { withRouter } from 'react-router-dom';
 
-function CreateCoin(props) {
+
+const CreateCoin = (props) => {
   return (
-    <div className="create-form" >
+    <div className="page create-form" >
       <form onSubmit={props.onSubmit}>
         <label htmlFor="coin"> Coin: </label>
         <input
@@ -20,6 +21,9 @@ function CreateCoin(props) {
           id="coin"
           onChange={props.onChange}
         />
+
+
+
         <button> Submit </button>
 
       </form>
