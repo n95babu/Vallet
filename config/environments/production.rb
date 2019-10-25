@@ -78,7 +78,7 @@ config.action_mailer.smtp_settings = {
  :address              => "smtp.gmail.com",
  :port                 => 587,
  :user_name            => 'valletexc@gmail.com',
- :password             => 'Macadmin1',
+ :password             => 'dhjovaaqitqrrrza',
  :authentication       => "plain",
 :enable_starttls_auto => true
 }
