@@ -50,10 +50,6 @@ export class Dashboard extends Component {
       user.currencies = []
     }
 
-
-    // const arrSum = arr => arr.reduce((a, b) => a + b, 0)
-
-
     return (
       <div className="page DashBoard">
         <h3 className="currentUser">Welcome, {user.first_name}!</h3>
@@ -84,12 +80,6 @@ export class Dashboard extends Component {
             <div className="currency" key={currency.id}>
               <p>{currency.coin}</p>
               <p>{currency.amount}</p>
-              {/* <button className="delete_coin"
-                onClick={() => {
-                  this.props.deleteCoin(currency.id);
-                  this.props.history.push('/dashboard')
-                }} > Delete</button> */}
-
               <Fab
                 variant="contained"
                 color="secondary"
