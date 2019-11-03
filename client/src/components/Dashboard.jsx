@@ -62,18 +62,20 @@ export class Dashboard extends Component {
             name="Ethereum"
             symbol="ETH"
           />
-          <LTCCoin
-            name="Litecoin"
-            symbol="LTC"
-          />
-          <XRPCoin
-            name="Ripple"
-            symbol="XRP"
-          />
-          <BCHCoin
-            name="Bitcoin Cash"
-            symbol="BCH"
-          />
+          <div className="sec-coin">
+            <LTCCoin
+              name="Litecoin"
+              symbol="LTC"
+            />
+            <XRPCoin
+              name="Ripple"
+              symbol="XRP"
+            />
+            <BCHCoin
+              name="Bitcoin Cash"
+              symbol="BCH"
+            />
+          </div>
         </div>
         {
           user.currencies.map(currency => (

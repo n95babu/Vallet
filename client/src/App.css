@@ -201,6 +201,25 @@ form p {
   background-color: #36713D;
 }
 
+/* ================================Landing PG ============================================ */
+
+.Total_cap {
+  /* border: solid red 5px; */
+  font-size: 20px;
+}
+
+.create-form {
+  padding-top: 200px;
+}
+
+.DashBoard {
+  padding-top: 100px;
+}
+
+.UserUpdate {
+  padding-top: 200px;
+}
+
 @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
   .card {
     border-radius: 4px;
@@ -221,23 +240,12 @@ form p {
     max-width: 60px;
     float: left;
   }
-}
-
-/* ================================Landing PG ============================================ */
-
-.Total_cap {
-  /* border: solid red 5px; */
-  font-size: 20px;
-}
-
-.create-form {
-  padding-top: 200px;
-}
-
-.DashBoard {
-  padding-top: 100px;
-}
-
-.UserUpdate {
-  padding-top: 200px;
+  .sec-coin {
+    display: none;
+  }
+  .card {
+    border-radius: 4px;
+    max-width: 150px;
+    height: 100px;
+  }
 }
