@@ -46,13 +46,15 @@ export class Dashboard extends Component {
     if (this.props.currentUser) {
       user = this.props.currentUser
     } else {
-      user = {}
+      user = {
+        user: 'New User'
+      }
       user.currencies = []
     }
 
     return (
       <div className="page DashBoard">
-        <h3 className="currentUser">Welcome, {user.first_name}!</h3>
+  <h3 className="currentUser">Welcome {`${user.first_name} ${user.last_name}`}!</h3>
         <div className='AllCard'>
           <CryptoCard
             name="Bitcoin"
@@ -62,7 +64,6 @@ export class Dashboard extends Component {
             name="Ethereum"
             symbol="ETH"
           />
-          <div className="sec-coin">
             <LTCCoin
               name="Litecoin"
               symbol="LTC"
@@ -75,7 +76,6 @@ export class Dashboard extends Component {
               name="Bitcoin Cash"
               symbol="BCH"
             />
-          </div>
         </div>
         {
           user.currencies.map(currency => (

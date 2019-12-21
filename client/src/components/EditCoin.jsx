@@ -1,7 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 
-function EditCoin(props) {
+const EditCoin = (props) => {
   return (
     <div className="page Edit-Coin">
       <h3>Edit Coin</h3>

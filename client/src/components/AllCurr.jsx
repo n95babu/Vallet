@@ -4,7 +4,7 @@ import { withRouter } from 'react-router';
 
 
 
-function AllCurr(props) {
+const AllCurr = (props) => {
   return (
     <div className="page coin-container">
       {props.currency.map(coins => (

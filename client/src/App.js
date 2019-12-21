@@ -1,6 +1,14 @@
 import React from 'react';
 import './App.css';
-import { Route, Link } from 'react-router-dom'
+import { 
+  Route, 
+  Link, 
+  Redirect,
+  useHistory,
+  useLocation,
+  BrowserRouter as Router } 
+  from 'react-router-dom';
+
 import { withRouter } from 'react-router';
 import logo from './assets/vallet.png';
 import UserForm from './components/UserForm';
@@ -127,16 +135,18 @@ export class App extends React.Component {
     this.props.history.push('/home')
   };
 
-  handleLogout = () => {
+  handleLogout = (e) => {
     localStorage.removeItem("authToken");
     this.setState({
       currentUser: null
     });
     this.props.history.push('/')
+    
+
   };
 
   authHandleChange = (e) => {
-    const { name, value } = e.target;
+    const { name, value } = e.target
     this.setState(prevState => ({
       authFormData: {
         ...prevState.authFormData,
@@ -145,10 +155,12 @@ export class App extends React.Component {
     }));
   };
 
-
-
-
   render() {
+
+    const privateRoute = ({ component : Component, ...rest}) => {
+      const isLoggedIn = this.handleLogin.isLoggedIn()
+    }
+
     return (
       <div className="App" >
         <header className="header">
@@ -183,6 +195,20 @@ export class App extends React.Component {
             handleChange={this.authHandleChange}
             formData={this.state.authFormData} />)} />
 
+
+      {/* <Route {...rest} 
+      render={(props) => 
+        isLoggedIn ? (
+          path="/dashboard"
+          <Dashboard
+          currentUser={this.state.currentUser}
+          deleteCoin={this.deleteCoin}
+        />}
+        ):(
+          <Redirect to = {{pathname: '/', state: {from: props.location}}} />
+        )}
+      /> */}
+      
         <Route exact path="/dashboard"
           render={() =>
             <Dashboard
@@ -190,6 +216,8 @@ export class App extends React.Component {
               deleteCoin={this.deleteCoin}
             />}
         />
+
+
         <Route exact path="/home"
           render={(props) => (
             <LandingPg

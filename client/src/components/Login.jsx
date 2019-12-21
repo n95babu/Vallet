@@ -7,6 +7,10 @@ import { useSpring, animated } from 'react-spring';
 // This component handles our login form and has a link to the register form
 const Login = (props) => {
   const gif = useSpring({ opacity: 1, from: { opacity: 0 } })
+  
+  // document.getelementsbyclassname('reset-form')
+
+
 
   return (
     <>
@@ -18,7 +22,7 @@ const Login = (props) => {
                 <h2>Welcome back!</h2>
 
                 <hr />
-                <form onSubmit={(e) => {
+                <form className='reset-form' onSubmit={(e) => {
                   e.preventDefault();
                   props.handleLogin();
                 }} >

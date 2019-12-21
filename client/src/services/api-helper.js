@@ -14,6 +14,18 @@ const api = axios.create({
   baseURL: baseUrl
 });
 
+
+const storetoken = (token) => {
+  localStorage.setItem('authToken', token);
+  api.defaults.headers.common.authorization = `Bearer ${token}`;
+}
+
+const getToken = () => {
+  const token = localStorage.getItem('authToken');
+  api.defaults.headers.common.authorization = `Bearer${token}`;
+}
+
+
 // ======================= Auth ========================
 export const loginUser = async (loginData) => {
   const resp = await api.post('/auth/login', loginData)
@@ -23,7 +35,7 @@ export const loginUser = async (loginData) => {
 };
 
 export const registerUser = async (registerData) => {
-  const resp = await api.post('/users/', { user: registerData })
+  const resp = await api.post('/users', { user: registerData })
   return resp.data
 };
 
